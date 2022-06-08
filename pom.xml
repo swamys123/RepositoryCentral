@@ -7,7 +7,7 @@
 
 	<groupId>io.github.swamys123</groupId>
 	<artifactId>repository</artifactId>
-	<version>2.2-SNAPSHOT</version>
+	<version>2.3.0</version>
 
 
 	<name>Example Application for maven repo publishinh </name>
@@ -218,10 +218,6 @@
 							<goals>
 								<goal>sign</goal>
 							</goals>
-							<configuration>
-								<keyname />
-								<passphraseServerId>@1swamys123</passphraseServerId>
-							</configuration>
 						</execution>
 					</executions>
 				</plugin>
