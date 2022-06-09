@@ -10,7 +10,7 @@
 	<version>2.3.0</version>
 
 
-	<name>Example Application for maven repo publishinh </name>
+	<name>Example Application for maven repo publishing </name>
 	<description>A application used as an example on how to set up pushing its components to the Central Repository.</description>
 	<url>http://www.example.com/example-application</url>
 
@@ -73,23 +73,11 @@
 
 		<plugins>
 
-<!--  
-			<plugin>
-				<groupId>org.sonatype.plugins</groupId>
-				<artifactId>nexus-staging-maven-plugin</artifactId>
-				<version>1.6.7</version>
-				<extensions>true</extensions>
-				<configuration>
-					<serverId>ossrh</serverId>
-					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
-					<autoReleaseAfterClose>true</autoReleaseAfterClose>
-					<useReleaseProfile>false</useReleaseProfile>
-					<releaseProfiles>release</releaseProfiles>
-					<goals>deploy</goals>
-
-				</configuration>
-			</plugin>
--->
+			<!-- <plugin> <groupId>org.sonatype.plugins</groupId> <artifactId>nexus-staging-maven-plugin</artifactId> 
+				<version>1.6.7</version> <extensions>true</extensions> <configuration> <serverId>ossrh</serverId> 
+				<nexusUrl>https://oss.sonatype.org/</nexusUrl> <autoReleaseAfterClose>true</autoReleaseAfterClose> 
+				<useReleaseProfile>false</useReleaseProfile> <releaseProfiles>release</releaseProfiles> 
+				<goals>deploy</goals> </configuration> </plugin> -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -131,28 +119,32 @@
 						<goals>
 							<goal>sign</goal>
 						</goals>
+						<configuration>
+							<keyname>780C3C41</keyname>
+							<passphraseServerId>@1swamys123</passphraseServerId>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-release-plugin</artifactId>
-					<version>2.5.3</version>
-					<configuration>
-						<localCheckout>true</localCheckout>
-						<pushChanges>false</pushChanges>
-						<mavenExecutorId>forked-path</mavenExecutorId>
-						<arguments>@1swamys123</arguments>
-					</configuration>
-					<dependencies>
-						<dependency>
-							<groupId>org.apache.maven.scm</groupId>
-							<artifactId>maven-scm-provider-gitexe</artifactId>
-							<version>1.9.5</version>
-						</dependency>
-					</dependencies>
-				</plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.3</version>
+				<configuration>
+					<localCheckout>true</localCheckout>
+					<pushChanges>false</pushChanges>
+					<mavenExecutorId>forked-path</mavenExecutorId>
+					<arguments>@1swamys123</arguments>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.scm</groupId>
+						<artifactId>maven-scm-provider-gitexe</artifactId>
+						<version>1.9.5</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 
 			<!-- <plugin> <artifactId>maven-jar-plugin</artifactId> <version>3.1.0</version> 
 				<executions> <execution> <id>default-jar</id> <phase>package</phase> <goals> 
